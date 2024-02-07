@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math
 
 '''
 nombre: Pablo Jose
@@ -38,26 +39,30 @@ class App(customtkinter.CTk):
         
         self.txt_kilometros = customtkinter.CTkEntry(master=self)
         self.txt_kilometros.grid(row=1, column=1)
-       
+
         self.btn_cantidad_camiones = customtkinter.CTkButton(master=self, text="Calcular cantidad de camiones", command=self.btn_cantidad_camiones_on_click)
         self.btn_cantidad_camiones.grid(row=3, pady=10, padx=30 ,columnspan=2, sticky="nsew")
         
         self.btn_tiempo_llegada = customtkinter.CTkButton(master=self, text="Calcular tiempo de llegada", command=self.btn_tiempo_llegada_on_click)
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
-    #3500kg
+    
     def btn_cantidad_camiones_on_click(self):
-        Toneladas = float(self.txt_toneladas.get())
+        Toneladas = int(self.txt_toneladas.get())
 
-        cantidad_de_camiones = str(int(Toneladas // 3.5))
-        alert("aa", cantidad_de_camiones)
+        cantidad_de_camiones = math.ceil(Toneladas / 3.5) #math.ceil funciona para redondear numeros hacia arriba
+
+        alert("Esta es la cantidad de camiones", "Para transportar " + str(Toneladas) + " toneladas se van a necesitar " + str(cantidad_de_camiones) + " camiones")
 
         
 
 
     def btn_tiempo_llegada_on_click(self):
-        pass
-    
+        kilometros = float(self.txt_kilometros.get())
+
+        horas = kilometros / 90
+
+        alert("Cantidad de horas hasta la obra", "Los camiones van a tardar " + str(horas) + "hs en recorrer " + str(kilometros) + "Km hasta la obra")
     
 if __name__ == "__main__":
     app = App()
