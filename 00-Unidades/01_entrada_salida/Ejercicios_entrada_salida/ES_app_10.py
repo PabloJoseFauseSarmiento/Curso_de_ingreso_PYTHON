@@ -34,7 +34,11 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, padx=30, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        pass
+        salario = float(self.txt_importe.get())
+
+        resultado = str(salario - (0.20 * salario))
+
+        alert("Este es tu sueldo con descuento", "Tu sueldo es de: " + resultado + "$ se te desconto un 20%")
 
 
 if __name__ == "__main__":

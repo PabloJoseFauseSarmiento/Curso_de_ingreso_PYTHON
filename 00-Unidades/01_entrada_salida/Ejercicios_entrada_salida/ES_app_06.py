@@ -42,9 +42,9 @@ class App(customtkinter.CTk):
 
     def btn_sumar_on_click(self):
             operador_a = int(self.txt_operador_a.get())
-            operador_b = int(self.txt_operador_b.get())
-            resultado = str(operador_a + operador_b)
-            alert("Este es tu resultado", "el resultado de la suma es: " + resultado)
+            operador_b = int(self.txt_operador_b.get()) #La funcion int() funciona para que algo que devuelve un valor lo devuelva en int
+            resultado = str(operador_a + operador_b) #la funcion str() es para que algo que devuelve un valor lo devuelva en string
+            alert("Este es el resultado", "el resultado de la suma es: " + resultado)
         
         
 if __name__ == "__main__":
