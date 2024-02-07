@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Pablo Jose
+apellido: Fause Sarmiento
 ---
 Ejercicio: entrada_salida_09
 ---
@@ -37,7 +37,7 @@ class App(customtkinter.CTk):
 
         resultado = str(salario * 1.15)
 
-        alert("Este es tu aumento", "tu sueldo es de: " + resultado +"$ se te sumo un 15%")
+        alert("Este es tu aumento", "tu sueldo es de: " + resultado +"$, se te sumo un 15%")
 
     
 if __name__ == "__main__":
