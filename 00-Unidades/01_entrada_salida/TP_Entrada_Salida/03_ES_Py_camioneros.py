@@ -48,7 +48,7 @@ class App(customtkinter.CTk):
     
     
     def btn_cantidad_camiones_on_click(self):
-        Toneladas = int(self.txt_toneladas.get())
+        Toneladas = float(self.txt_toneladas.get())
 
         cantidad_de_camiones = math.ceil(Toneladas / 3.5) #math.ceil funciona para redondear numeros hacia arriba
 
