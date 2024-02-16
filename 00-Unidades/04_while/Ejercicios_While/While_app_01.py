@@ -29,7 +29,10 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        Interaccion = 0
+        while Interaccion < 10:
+            alert("Informe", "Interaccion NRO: " + str(Interaccion + 1))
+            Interaccion += 1
     
     
 if __name__ == "__main__":

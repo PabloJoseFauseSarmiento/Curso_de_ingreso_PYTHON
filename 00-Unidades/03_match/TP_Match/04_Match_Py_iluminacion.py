@@ -43,9 +43,69 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
-        
+        Marca = self.combobox_marca.get()
+        Cantidad = int(self.combobox_cantidad.get())
+
+        match Marca, Cantidad:
+            case _, 6|7|8|9:
+                Descuento = 0.5
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+
+            case _, 10|11|12:
+                Descuento = 0.5
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+                Total_Con_Descuentos = Total_Con_Descuentos - (Total_Con_Descuentos * 0.05) #Se le agrega un 5% mas de descuento porque este es el unico caso que alcanza mas de 4000$
+
+
+            case "ArgentinaLuz", 5:
+                Descuento = 0.4
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+
+            case _, 5:
+                Descuento = 0.3
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+
+            case "ArgentinaLuz"|"FelipeLamparas", 4:
+                Descuento = 0.25
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+            
+            case _, 4:
+                Descuento = 0.20
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+
+            case "ArgentinaLuz", 3:
+                Descuento = 0.15
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+
+            case "FelipeLamparas", 3:
+                Descuento = 0.10
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
+
+            case _, 3:
+                Descuento = 0.05
+
+                Total = Cantidad * 800
+                Total_Con_Descuentos = Total - (Total * Descuento)
     
+        alert("Factura", "El precio total de todas sus compras suman: " + str(Total_Con_Descuentos) + " $")
+
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

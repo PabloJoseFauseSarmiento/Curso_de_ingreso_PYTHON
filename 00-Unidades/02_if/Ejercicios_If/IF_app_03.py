@@ -41,7 +41,7 @@ class App(customtkinter.CTk):
         
         else:
             alert("Tu edad", "MENOR")
-            
+    
 
         
         

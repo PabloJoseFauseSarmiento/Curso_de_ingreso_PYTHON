@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Pablo Jose
+apellido: Fause Sarmiento
 ---
 Ejercicio: Match_09
 ---
@@ -57,9 +57,48 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        Estacion = self.combobox_estaciones.get()
+        Destino = self.combobox_destino.get()
+
+        match Estacion, Destino:
+            case "Invierno", "Bariloche":
+                Aumento = 0.20
+                Descuento = 0
+
+            case "Invierno", "Cataratas"|"Cordoba":
+                Aumento = 0
+                Descuento = 0.10
+
+            case "Invierno", "Mar del plata":
+                Aumento = 0
+                Descuento = 0.20
+
+            case "Verano", "Bariloche":
+                Aumento = 0
+                Descuento = 0.20
+
+            case "Verano", "Cataratas"|"Cordoba":
+                Aumento = 0.10
+                Descuento = 0
+
+            case "Verano", "Mar del plata":
+                Aumento = 0.20
+                Descuento = 0
+
+            case "Primavera"|"Otoño", "Bariloche"|"Cataratas"|"Mar del plata":
+                Aumento = 0.10
+                Descuento = 0
             
-    
+            case "Primavera"|"Otoño", "Cordoba":
+                Aumento = 0
+                Descuento = 0
+
+        Total_Calculado = 15000 + (15000 * Aumento)
+        Total_Calculado = Total_Calculado - (Total_Calculado * Descuento)
+
+        alert("Total", "El total calculado del viaje es de " + str(Total_Calculado) + "$")
+
+            
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
