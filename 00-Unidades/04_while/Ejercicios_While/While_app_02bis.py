@@ -29,13 +29,15 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        Interaccion = 2
-        Contador = 0
-        while Interaccion < 11:
-            alert("Iteraccion", "Iteraccion NRO: " + str(Interaccion))
-            Interaccion += (Contador + 2 * (Contador % 2))
-            Contador += 2
-    
+        Par = 2
+        Resultado = 0
+        while Par < 10:
+            Resultado = Resultado + Par
+            alert("Alert", Resultado)
+            Par += 2
+
+
+
     
 if __name__ == "__main__":
     app = App()
