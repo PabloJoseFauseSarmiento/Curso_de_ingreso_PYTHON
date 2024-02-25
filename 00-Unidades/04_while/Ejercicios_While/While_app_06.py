@@ -44,8 +44,10 @@ class App(customtkinter.CTk):
             C += 1
         
         promedio = resultado / 5
-        str(self.txt_suma_acumulada.insert(resultado))
-        str(self.txt_promedio.insert(promedio))
+        self.txt_suma_acumulada.delete(0, 999)
+        self.txt_suma_acumulada.insert(0, resultado)
+        self.txt_promedio.delete(0, 999)
+        self.txt_promedio.insert(0, promedio)
 
     
 if __name__ == "__main__":
